@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+    @media only screen and (max-width: 600px){
+        .main-header {
+            flex-direction: column;
+        }
+
+        .menu {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .logo-icon {
+            margin-bottom: 14px;
+        }
+    }
+</style>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device=width, initial-scale=1.0">
@@ -9,26 +26,171 @@
 </head>
 
 <body>
-    <header>
+    <header class="main-header">
+        <!-- logo -->
         <div class="logo-icon"></div>
 
-        <nav></nav>
+        <!-- Navigation -->
+        <nav class="menu">
+            <a href="#section-home">Home</a>
+            <a href="#section-profile">Our Profile</a>
+            <a href="#section-portofolio">Portofolio</a>
+            <a href="#section-message">Message Us</a>
+        </nav>
     </header>
+
+    <hr />
 
     <main>
         <!-- Home -->
-         <section></section>
+        <section id="section-home">
+            <header>
+                <h1>Hi User, Welcome to my website</h1>
+            </header>
+
+            <article>
+                <p>Lorem ipsum Dolor Sit Amet Adipiscing</p>
+
+                <!-- photo-banner -->
+                <div>
+                    <img
+                    class="img-slideshow"
+                    src="https://images.unsplash.com/photo-1550321989-65d089904d5c?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    />
+                    <img
+                    class="img-slideshow"
+                    src="https://images.unsplash.com/photo-1512149177596-f817c7ef5d4c?q=80&w=1900&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    />
+                    <img
+                    class="img-slideshow"
+                    src="https://images.unsplash.com/photo-1432457990754-c8b5f21448de?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    />
+                    <img
+                    class="img-slideshow"
+                    src="https://images.unsplash.com/photo-1477925518023-22b33cbd802c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    />
+                    <button class="slideshow-button" onclick="plusDivs(-1)">Previous</button>
+                    <button class="slideshow-button" onclick="plusDivs(1)">Next</button>
+                </div>
+
+                <script>
+                    var slideIndex = 1;
+                    showDivs(slideIndex);
+                    
+                    function plusDivs(n) {
+                        showDivs((slideIndex += n))
+                    }
+                
+                    function showDivs(n) {
+                        var i;
+                        var x = document.getElementsByClassName("img-slideshow");
+                        if (n > x.length) slideIndex = 1;
+                        else if (n < 1) slideIndex = x.length;
+                
+                        console.log(slideIndex);
+                        for (i = 0; i < x.length; i++) {
+                            x[i].style.display = "none"
+                        }
+                        x[slideIndex - 1].style.display = "block";
+                    }
+
+                    setInterval(() => {
+                        plusDivs(1);
+                    }, 1000)
+
+                </script>
+            </article>
+        </section>
 
         <!-- our profile -->
-         <section></section>
+        <section id="section-profile">
+            <header>
+                <h1>Our Profile</h1>
+            </header>
+            
+            <div class="profile-icon-container">
+                <div>
+                    <div class="profile-icon"></div>
+                    <h4>Jakarta</h4>
+                </div>
 
-         <!-- portofolio -->
-          <section></section>
+                <div>
+                    <div class="profile-icon"></div>
+                    <h4>Bandung</h4>
+                </div>
 
-          <!-- message us -->
-           <section></section>
+                <div>
+                    <div class="profile-icon"></div>
+                    <h4>Surabaya</h4>
+                </div>
+            </div>
+        </section>
 
+        <hr />
+
+        <!-- portofolio -->
+        <section id="section-portofolio">
+            <header>
+                <h1>Portofolio</h1>
+            </header>
+        </section>
+
+          <hr />
+
+        <!-- message us -->
+        <section id="section-message">
+            <header>
+                <h1>Message Us</h1>
+            </header>
+
+            <div class="form-container">
+                <!-- Form Section -->
+                <div class="form-input">
+                    <form>
+                        <div class="input-field">
+                            <label for="name">Nama:</label>
+                            <input type="text" id="name" placeholder="Nama">
+                        </div>
+                
+                        <div class="input-field">
+                            <label for="birthdate">Tanggal Lahir:</label>
+                            <input type="date" id="birthdate">
+                        </div>
+                
+                        <div class="input-field">
+                            <label>Jenis Kelamin:</label>
+                            <input type="radio" name="gender" value="Laki-Laki"> Laki-Laki
+                            <input type="radio" name="gender" value="Perempuan"> Perempuan
+                        </div>
+                
+                        <div class="input-field">
+                            <label for="message">Pesan:</label>
+                            <textarea id="message" placeholder="Pesan"></textarea>
+                        </div>
+                
+                        <button type="button" onclick="updatePreview()">Submit</button>
+                    </form>
+                </div>
+                
+                <!-- Preview Section -->
+                <div class="form-preview">
+                    <p style="margin-bottom: 40px;"><strong>Current Time :</strong> <span id="output-time"></span></p> 
+                    <p><strong>Nama :</strong> <span id="output-name"></span></p>
+                    <p><strong>Tanggal Lahir :</strong> <span id="output-birthdate"></span></p>
+                    <p><strong>Jenis Kelamin :</strong> <span id="output-gender"></span></p>
+                    <p><strong>Pesan :</strong> <span id="output-message"></span></p>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <hr />
+
+    <footer>
+        <p style="text-align: end;">Made by alwankemal128@gmail.com</p>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>
