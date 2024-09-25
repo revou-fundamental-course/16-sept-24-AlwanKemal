@@ -149,26 +149,26 @@
                     <form>
                         <div class="input-field">
                             <label for="name">Nama:</label>
-                            <input type="text" id="name" placeholder="Nama">
+                            <input type="text" id="name" placeholder="Nama" required>
                         </div>
                 
                         <div class="input-field">
                             <label for="birthdate">Tanggal Lahir:</label>
-                            <input type="date" id="birthdate">
+                            <input type="date" id="birthdate" required>
                         </div>
                 
                         <div class="input-field">
                             <label>Jenis Kelamin:</label>
-                            <input type="radio" name="gender" value="Laki-Laki"> Laki-Laki
-                            <input type="radio" name="gender" value="Perempuan"> Perempuan
+                            <input type="radio" name="gender" value="Laki-Laki" required> Laki-Laki
+                            <input type="radio" name="gender" value="Perempuan" required> Perempuan
                         </div>
                 
                         <div class="input-field">
                             <label for="message">Pesan:</label>
-                            <textarea id="message" placeholder="Pesan"></textarea>
+                            <textarea id="message" placeholder="Pesan" required></textarea>
                         </div>
                 
-                        <button type="button" onclick="updatePreview()">Submit</button>
+                        <button type="submit" onclick="updatePreview()">Submit</button>
                     </form>
                 </div>
                 
